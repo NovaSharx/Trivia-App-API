@@ -78,11 +78,15 @@ app.post('/api/posthighscore', (req, res) => {
   const playerName = req.body.player_name
   const playerScore = req.body.player_score
   const questionCount = req.body.question_count
+  const difficulty = req.body.difficulty
+  const category = req.body.category
 
   Highscores.create({
     player_name: playerName,
     player_score: playerScore,
-    question_count: questionCount
+    question_count: questionCount,
+    difficulty: difficulty,
+    category: category
   })
     .then(results => {
       console.log(results)
